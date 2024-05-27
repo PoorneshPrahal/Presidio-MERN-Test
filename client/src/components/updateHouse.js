@@ -28,7 +28,7 @@ const UpdateHouse = () => {
     const fetchHouseDetails = async () => {
       try {
         const houseData = await axios.get(
-          `http://localhost:3500/seller/house/${id}`
+          `https://presidio-mern-test.onrender.com/seller/house/${id}`
         );
         setHouseDetails(houseData.data);
       } catch (error) {
@@ -53,7 +53,7 @@ const UpdateHouse = () => {
     try {
       console.log(houseDetails);
       const response = await axios.patch(
-        "http://localhost:3500/seller/",
+        "https://presidio-mern-test.onrender.com/seller/",
         houseDetails
       );
       setMessage(response.message);

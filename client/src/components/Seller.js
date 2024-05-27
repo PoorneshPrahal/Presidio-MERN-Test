@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -19,25 +19,26 @@ const Seller = () => {
     navigate(`/seller/updateHouse/${id}/${sellerId}`);
   };
 
-  const fetchHouses = async () => {
-    try {
-      const housesData = await axios.get(
-        `http://localhost:3500/seller/${sellerId}`
-      );
-      console.log(housesData.data);
-      setHouses(housesData.data);
-    } catch (error) {
-      setError("You have not posted any houses.");
-    }
-  };
-  const deleteHouse = async (id) => {
-    const house = await axios.delete(`http://localhost:3500/seller/${id}`);
-    fetchHouses();
-  };
+ const fetchHouses = useCallback(async () => {
+   try {
+     const response = await axios.get(
+       `https://presidio-mern-test.onrender.com/seller/${sellerId}`
+     );
+     setHouses(response.data);
+     setError(null);
+   } catch (error) {
+     setHouses([]);
+     setError("You have not posted any houses");
+   }
+ }, [sellerId]);
 
-  useEffect(() => {
+ useEffect(() => {
+   fetchHouses();
+ }, [fetchHouses]);
+  const deleteHouse = async (id) => {
+    await axios.delete(`https://presidio-mern-test.onrender.com/seller/${id}`);
     fetchHouses();
-  }, [sellerId]);
+  };
 
   return (
     <div className="seller-page">

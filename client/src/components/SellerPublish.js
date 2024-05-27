@@ -34,7 +34,7 @@ const SellerPublish = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:3500/seller`,
+        `https://presidio-mern-test.onrender.com/seller`,
         houseDetails
       );
       setMessage(response.message);
@@ -115,7 +115,7 @@ const SellerPublish = () => {
         <input
           type="number"
           name="Rent"
-          placeholder="10000"
+          placeholder="Rent - Ex. 10000"
           value={houseDetails.Rent}
           onChange={handleChange}
           required

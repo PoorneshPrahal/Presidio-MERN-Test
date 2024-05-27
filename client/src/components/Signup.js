@@ -23,7 +23,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3500/users/register",
+        "https://presidio-mern-test.onrender.com/users/register",
         formData
       );
       console.log(response.data);

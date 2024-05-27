@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./Buyer.css";
 
 import Modal from "./Modal";
 
 const Buyer = () => {
-  const { id } = useParams();
+  // const { id } = useParams();
   const [city, setCity] = useState("");
   const [area, setArea] = useState("");
   const [houses, setHouses] = useState([]);
@@ -18,7 +18,9 @@ const Buyer = () => {
   useEffect(() => {
     const fetchHouses = async () => {
       try {
-        const response = await axios.get("http://localhost:3500/buyer/home");
+        const response = await axios.get(
+          "https://presidio-mern-test.onrender.com/buyer/home"
+        );
         setHouses(response.data);
         setError(null);
       } catch (error) {
@@ -33,7 +35,7 @@ const Buyer = () => {
     try {
       console.log("Fetching details for houseId:", houseId);
       const response = await axios.get(
-        `http://localhost:3500/buyer/house/${houseId}`
+        `https://presidio-mern-test.onrender.com/buyer/house/${houseId}`
       );
       console.log("Response:", response.data);
       setSellerDetails(response.data);
@@ -53,7 +55,7 @@ const Buyer = () => {
 
   const handleSearch = async () => {
     try {
-      const housesData = await axios.get("http://localhost:3500/buyer/", {
+      const housesData = await axios.get("https://presidio-mern-test.onrender.com/buyer/", {
         params: { city, area },
       });
       setHouses(housesData.data);
