@@ -1,0 +1,38 @@
+.seller-page {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.seller-page h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.houses-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.house-card {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.house-card h3 {
+  margin: 0 0 10px;
+  color: #4caf50;
+}
+
+.house-card p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.error {
+  color: red;
+  margin-bottom: 20px;
+}

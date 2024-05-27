@@ -1,0 +1,44 @@
+.update-house {
+  padding: 20px;
+}
+
+.house-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin: auto;
+}
+
+.house-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.house-form button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.house-form button:hover {
+  background-color: #0056b3;
+}
+
+.message {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+  text-align: center;
+}
+
+.error {
+  margin-top: 20px;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
