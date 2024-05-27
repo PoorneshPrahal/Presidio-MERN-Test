@@ -91,6 +91,11 @@ const Buyer = () => {
         {houses.length > 0
           ? houses.map((house) => (
               <div key={house._id} className="house-card">
+                <img
+                  src={house.img}
+                  alt="House images"
+                  style={{ width: "200px" }}
+                />
                 <h3>
                   {house.Area}, {house.City}
                 </h3>{" "}
